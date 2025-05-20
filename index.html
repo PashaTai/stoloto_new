@@ -152,20 +152,10 @@
                 <h2 class="text-3xl font-bold text-gray-800 mb-4">Счастье — в близости и общении, а не в цифрах</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Семейный ужин, общий смех и ожидание выигрыша за одним столом — в «Русском Лото» важна не только удача, но и радость быть вместе.</p>
             </div>
-     <div class="md:w-1/2 mb-10 md:mb-0">
-    <div class="video-container">
-        <img src="https://iimg.su/s/07/NmoKIATPcHTfmYorCunnPY8TVuK9zcjfj0iYvBWz.png" 
-             class="video-thumbnail" 
-             alt="Семья играет в лото"
-             id="videoThumbnail">
-        <div class="play-button" id="playButton"></div>
-        <iframe id="vkVideo" 
-                src="about:blank" 
-                allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" 
-                allowfullscreen>
-        </iframe>
-    </div>
-</div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="https://iimg.su/s/07/NmoKIATPcHTfmYorCunnPY8TVuK9zcjfj0iYvBWz.png" alt="Семья играет в лото" class="family-img w-full max-w-lg">
+                </div>
                 <div class="md:w-1/2 md:pl-12">
                     <div class="mb-8">
                         <div class="flex items-center mb-4">
@@ -431,62 +421,4 @@
             });
         });
     </script>
-
-    <!-- Ваш существующий JavaScript -->
-    <script>
-        // Простая анимация для шаров при загрузке страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            const balls = document.querySelectorAll('.lottery-ball');
-            balls.forEach((ball, index) => {
-                setTimeout(() => {
-                    ball.style.transform = 'scale(1.2)';
-                    setTimeout(() => {
-                        ball.style.transform = 'scale(1)';
-                    }, 300);
-                }, index * 100);
-            });
-            
-            // Плавная прокрутка для якорных ссылок
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
-    
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const thumbnail = document.getElementById('videoThumbnail');
-        const iframe = document.getElementById('vkVideo');
-        const playButton = document.getElementById('playButton');
-        
-        if (thumbnail && iframe) {
-            // Обработчик на изображение
-            thumbnail.addEventListener('click', function() {
-                loadVideo();
-            });
-            
-            // Обработчик на кнопку воспроизведения (для визуальной отзывчивости)
-            if (playButton) {
-                playButton.addEventListener('click', function() {
-                    loadVideo();
-                });
-            }
-            
-            // Функция загрузки видео
-            function loadVideo() {
-                iframe.src = "https://vkvideo.ru/video_ext.php?oid=-225777667&id=456239020&hd=2";
-                iframe.style.display = 'block';
-                thumbnail.style.display = 'none';
-                if (playButton) {
-                    playButton.style.display = 'none';
-                }
-            }
-        }
-    });
-</script>
 </html>
