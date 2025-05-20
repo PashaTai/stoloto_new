@@ -152,7 +152,7 @@
                 <h2 class="text-3xl font-bold text-gray-800 mb-4">Счастье — в близости и общении, а не в цифрах</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Семейный ужин, общий смех и ожидание выигрыша за одним столом — в «Русском Лото» важна не только удача, но и радость быть вместе.</p>
             </div>
-            <div class="md:w-1/2 mb-10 md:mb-0">
+     <div class="md:w-1/2 mb-10 md:mb-0">
     <div class="video-container">
         <img src="https://iimg.su/s/07/NmoKIATPcHTfmYorCunnPY8TVuK9zcjfj0iYvBWz.png" 
              class="video-thumbnail" 
@@ -458,19 +458,34 @@
         });
     </script>
     
-    <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         const thumbnail = document.getElementById('videoThumbnail');
         const iframe = document.getElementById('vkVideo');
+        const playButton = document.getElementById('playButton');
         
         if (thumbnail && iframe) {
+            // Обработчик на изображение
             thumbnail.addEventListener('click', function() {
-                // Устанавливаем URL видео только при клике
+                loadVideo();
+            });
+            
+            // Обработчик на кнопку воспроизведения (для визуальной отзывчивости)
+            if (playButton) {
+                playButton.addEventListener('click', function() {
+                    loadVideo();
+                });
+            }
+            
+            // Функция загрузки видео
+            function loadVideo() {
                 iframe.src = "https://vkvideo.ru/video_ext.php?oid=-225777667&id=456239020&hd=2";
                 iframe.style.display = 'block';
                 thumbnail.style.display = 'none';
-                document.getElementById('playButton').style.display = 'none';
-            });
+                if (playButton) {
+                    playButton.style.display = 'none';
+                }
+            }
         }
     });
 </script>
