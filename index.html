@@ -6,6 +6,7 @@
     <title>Русское Лото - Семейное развлечение с добрыми делами</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
         
@@ -57,11 +58,6 @@
         .charity-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .family-img {
-            border-radius: 15px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
         .lottery-ball {
@@ -145,7 +141,7 @@
         </div>
     </section>
 
-    <!-- О нас -->
+    <!-- About section with video -->
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -153,8 +149,14 @@
                 <p class="text-gray-600 max-w-2xl mx-auto">Семейный ужин, общий смех и ожидание выигрыша за одним столом — в «Русском Лото» важна не только удача, но и радость быть вместе.</p>
             </div>
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="https://iimg.su/s/07/NmoKIATPcHTfmYorCunnPY8TVuK9zcjfj0iYvBWz.png" alt="Семья играет в лото" class="family-img w-full max-w-lg">
+                <div class="md:w-1/2 mb-10 md:mb-0 video-container">
+                    <iframe 
+                        src="https://vkvideo.ru/video_ext.php?oid=-225777667&id=456239020&hd=2&autoplay=1" 
+                        allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" 
+                        frameborder="0" 
+                        allowfullscreen
+                        class="video-frame"
+                    ></iframe>
                 </div>
                 <div class="md:w-1/2 md:pl-12">
                     <div class="mb-8">
@@ -297,7 +299,7 @@
                     <div class="flex justify-between text-sm">
                         <span class="text-gray-500">Тираж №1245</span>
                         <span class="font-bold text-red-600">500 000 ₽</span>
-                        </div>
+                    </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm">
                     <div class="flex items-center mb-4">
@@ -421,4 +423,5 @@
             });
         });
     </script>
+</body>
 </html>
