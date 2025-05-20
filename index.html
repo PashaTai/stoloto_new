@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Русское Лото - Семейное развлечение с добрыми делами</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -152,10 +152,10 @@
                 <div class="md:w-1/2 mb-10 md:mb-0 video-container">
                     <iframe 
                         src="https://vk.com/video_ext.php?oid=-225777667&id=456239020&hd=4" 
+                        class="video-frame"
                         allow="encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" 
                         frameborder="0" 
                         allowfullscreen
-                        class="video-frame"
                     ></iframe>
                 </div>
                 <div class="md:w-1/2 md:pl-12">
@@ -401,7 +401,8 @@
 
     <script>
         // Простая анимация для шаров при загрузке страницы
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function()
+        {
             const balls = document.querySelectorAll('.lottery-ball');
             balls.forEach((ball, index) => {
                 setTimeout(() => {
