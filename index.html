@@ -153,9 +153,13 @@
                 <p class="text-gray-600 max-w-2xl mx-auto">Семейный ужин, общий смех и ожидание выигрыша за одним столом — в «Русском Лото» важна не только удача, но и радость быть вместе.</p>
             </div>
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="https://iimg.su/s/07/NmoKIATPcHTfmYorCunnPY8TVuK9zcjfj0iYvBWz.png" alt="Семья играет в лото" class="family-img w-full max-w-lg">
-                </div>
+               <div class="md:w-1/2 mb-10 md:mb-0 video-wrapper">
+    <div class="video-container">
+        <div class="custom-poster" id="customPoster" style="background-image: url('https://iimg.su/s/07/NmoKIATPcHTfmYorCunnPY8TVuK9zcjfj0iYvBWz.png')"></div>
+        <div class="custom-play-button" id="customPlayBtn"></div>
+        <div id="vk_video_container"></div>
+    </div>
+</div>
                 <div class="md:w-1/2 md:pl-12">
                     <div class="mb-8">
                         <div class="flex items-center mb-4">
@@ -421,4 +425,91 @@
             });
         });
     </script>
+
+    <!-- Ваш существующий JavaScript -->
+    <script>
+        // Простая анимация для шаров при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const balls = document.querySelectorAll('.lottery-ball');
+            balls.forEach((ball, index) => {
+                setTimeout(() => {
+                    ball.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        ball.style.transform = 'scale(1)';
+                    }, 300);
+                }, index * 100);
+            });
+            
+            // Плавная прокрутка для якорных ссылок
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+    
+    <!-- Добавьте сюда скрипт для видео -->
+    <script src="https://vk.com/js/api/openapi.js?169" type="text/javascript"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Инициализация API ВКонтакте
+            VK.init({apiId: 0});
+            
+            // Получаем элементы
+            const playBtn = document.getElementById('customPlayBtn');
+            const poster = document.getElementById('customPoster');
+            const videoContainer = document.getElementById('vk_video_container');
+            
+            // Флаг для отслеживания состояния видео
+            let videoLoaded = false;
+            
+            // Обработчик клика по кнопке воспроизведения
+            playBtn.addEventListener('click', function() {
+                if (!videoLoaded) {
+                    // Загружаем видео только при первом клике
+                    VK.Widgets.Video("vk_video_container", {
+                        video_id: '-225777667_456239020', 
+                        width: 640, 
+                        height: 360,
+                        autoplay: 1,
+                        hd: 2,
+                        no_controls: 0
+                    });
+                    videoLoaded = true;
+                } else {
+                    // Если видео уже загружено, просто отправляем сообщение для запуска
+                    const vkVideoFrame = document.querySelector('#vk_video_container iframe');
+                    if (vkVideoFrame) {
+                        vkVideoFrame.contentWindow.postMessage('{"method":"playVideo"}', '*');
+                    }
+                }
+                
+                // Скрываем кастомную обложку и кнопку
+                poster.classList.add('hidden');
+                playBtn.classList.add('hidden');
+            });
+            
+            // Слушаем сообщения от iframe для определения состояния плеера
+            window.addEventListener('message', function(e) {
+                if (e.data && typeof e.data === 'string') {
+                    try {
+                        const data = JSON.parse(e.data);
+                        
+                        // Видео остановлено или закончилось - показываем обложку и кнопку
+                        if (data.event === 'pause' || data.event === 'finish') {
+                            poster.classList.remove('hidden');
+                            playBtn.classList.remove('hidden');
+                        }
+                    } catch(err) {
+                        // Игнорируем ошибки парсинга JSON
+                    }
+                }
+            });
+        });
+    </script>
+</html>
 </html>
