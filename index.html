@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Русское Лото - Семейное развлечение с добрыми делами</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://iimg.su/s/07/9tG8xN4JKEnhbyAePz4zxF8tyD2ox9Vp08ZDV8Ca.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ticket-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ticket-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 30%,
+                rgba(255, 255, 255, 0.8) 45%,
+                rgba(255, 255, 255, 0) 60%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+        
+        .charity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .family-img {
+            border-radius: 15px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .lottery-ball {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #fff, #ffd700);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            color: #c00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-2xl mr-3">РЛ</div>
+                <h1 class="text-2xl font-bold text-gray-800">Русское Лото</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-red-600 transition">О нас</a>
+                <a href="#how-to-play" class="text-gray-700 hover:text-red-600 transition">Как играть</a>
+                <a href="#charity" class="text-gray-700 hover:text-red-600 transition">Благотворительность</a>
+                <a href="#winners" class="text-gray-700 hover:text-red-600 transition">Победители</a>
+            </nav>
+            <button class="md:hidden text-gray-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Герой-секция -->
+    <section class="hero-gradient">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center py-16">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Семейное развлечение <span class="text-red-300">с добрыми делами</span></h2>
+                <p class="text-xl text-gray-200 mb-8">Русское Лото - это не просто шанс выиграть, а возможность весело провести время с близкими и помочь тем, кто в этом нуждается.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-105 shadow-lg">
+                        Купить билет
+                    </button>
+                    <button class="border-2 border-white text-white hover:bg-white hover:bg-opacity-20 font-bold py-3 px-8 rounded-full transition transform hover:scale-105">
+                        Как играть
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div class="ticket-shine bg-white p-6 rounded-xl shadow-xl max-w-md mx-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="text-red-600 font-bold text-xl">Русское Лото</div>
+                        <div class="text-gray-500">Билет № 12345678</div>
+                    </div>
+                    <div class="grid grid-cols-9 gap-2 mb-6">
+                        <div class="lottery-ball">5</div>
+                        <div class="lottery-ball">12</div>
+                        <div class="lottery-ball">23</div>
+                        <div class="lottery-ball">34</div>
+                        <div class="lottery-ball">45</div>
+                        <div class="lottery-ball">56</div>
+                        <div class="lottery-ball">67</div>
+                        <div class="lottery-ball">78</div>
+                        <div class="lottery-ball">89</div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <div class="flex justify-between text-sm text-gray-600 mb-2">
+                            <span>Тираж:</span>
+                            <span class="font-bold">1268</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span>Дата розыгрыша:</span>
+                            <span class="font-bold">15.07.2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Счастье — в близости и общении, а не в цифрах</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Семейный ужин, общий смех и ожидание выигрыша за одним столом — в «Русском Лото» важна не только удача, но и радость быть вместе.</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="https://iimg.su/s/07/NmoKIATPcHTfmYorCunnPY8TVuK9zcjfj0iYvBWz.png" alt="Семья играет в лото" class="family-img w-full max-w-lg">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-heart text-red-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Моменты, которые остаются</h3>
+                        </div>
+                        <p class="text-gray-600">Соберите родных за одним столом - Русское Лото создает особую атмосферу общения и веселья, которую так ценят в каждой семье.</p>
+                    </div>
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-history text-yellow-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Настоящая семейная традиция</h3>
+                        </div>
+                        <p class="text-gray-600">От бабушки до внуков — поколения играют вместе, и «Русское Лото» становится частью семейной истории, которую приятно передавать.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-child text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Творить добро вместе</h3>
+                        </div>
+                        <p class="text-gray-600">Участвуя в лотереях, вы не просто дарите радость своей семье, но и помогаете обществу.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Как играть -->
+    <section id="how-to-play" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Как играть в Русское Лото</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Просто купите билет и следите за тиражом - мы сделали процесс максимально удобным и понятным.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="text-red-600 text-4xl mb-4">1</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Купите билет</h3>
+                    <p class="text-gray-600">Выберите билет с уникальной комбинацией чисел. Каждый билет участвует в нескольких тиражах.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="text-red-600 text-4xl mb-4">2</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Следите за тиражом</h3>
+                    <p class="text-gray-600">Розыгрыши проходят каждое воскресенье в 08:20 на канале НТВ. Все результаты также доступны онлайн.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="text-red-600 text-4xl mb-4">3</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Проверьте выигрыш</h3>
+                    <p class="text-gray-600">Если числа в вашем билете совпали с выпавшими в тираже - вы выиграли! Чем больше совпадений, тем крупнее приз.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Благотворительность -->
+    <section id="charity" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Ваша игра помогает другим</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Часть средств от каждого билета идет на благотворительные программы по всей России.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="charity-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <img src="https://iimg.su/s/07/gzgjFvZPIdykEebFKT46IQRbW6AxFJrLg39U22wF.png" alt="Дети в больнице" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Помощь детям с тяжелыми заболеваниями</h3>
+                        <p class="text-gray-600 mb-4">Столото выделила грант хоспису «Бумажная птица» в Санкт-Петербурге — учреждению, которое поддерживает детей и взрослых с тяжелыми диагнозами. Средства направлены на закупку оборудования и лекарств для детских медицинских учреждений.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-red-600 h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 mt-1">
+                            <span>Собрано:</span>
+                            <span>12.8 млн руб</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="charity-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <img src="https://iimg.su/s/07/759yNMYa7WaPGGlxOjwuejNj1wB6aCRNzmq3rTNC.png" alt="Пожилые люди" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Поддержка пожилых людей</h3>
+                        <p class="text-gray-600 mb-4">Столото помогает одиноким пенсионерам и ветеранам по всей стране. В 2023 году сотрудники компании оказывали регулярную помощь дому-интернату в Тульской области: передавали продукты и необходимые вещи, устраивали спортивные и праздничные мероприятия, дарили заботу и внимание.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-red-600 h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 mt-1">
+                            <span>Собрано:</span>
+                            <span>9.4 млн руб</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="charity-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <img src="https://www.westjetcargo.com/content/wjcargo/ca/en/products/pets/_jcr_content/root/container/imagecontent/image.coreimg.jpeg/1743779751519/2024-pet-banner.jpeg" alt="Бездомные животные" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Защита животных</h3>
+                        <p class="text-gray-600 mb-4">Столото поддерживает приюты для бездомных животных. Совместно с фондами «Подарок судьбы» и «НИКА» проводятся благотворительные лотереи, средства от которых направляются на корм, лечение и поиск новых хозяев для кошек и собак.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-red-600 h-2 rounded-full" style="width: 45%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 mt-1">
+                            <span>Собрано:</span>
+                            <span>7.1 млн руб</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-105 shadow-lg">
+                    Узнать больше о благотворительности
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Победители -->
+    <section id="winners" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Наши победители</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Каждую неделю тысячи людей по всей России становятся победителями Русского Лото.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gray-200 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Победитель" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Елена С.</h3>
+                            <p class="text-gray-500 text-sm">г. Казань</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Выиграла 500 000 рублей! Эти деньги помогли нам сделать ремонт в квартире. Спасибо Русскому Лото!"</p>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-500">Тираж №1245</span>
+                        <span class="font-bold text-red-600">500 000 ₽</span>
+                        </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gray-200 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Победитель" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Александр П.</h3>
+                            <p class="text-gray-500 text-sm">г. Новосибирск</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Играем всей семьей по выходным. Неожиданно выиграли 1 000 000 рублей! Теперь сможем съездить на море."</p>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-500">Тираж №1243</span>
+                        <span class="font-bold text-red-600">1 000 000 ₽</span>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gray-200 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Победитель" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Ольга М.</h3>
+                            <p class="text-gray-500 text-sm">г. Екатеринбург</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Купила билет просто так, для развлечения. И неожиданно выиграла автомобиль! До сих пор не верю!"</p>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-500">Тираж №1238</span>
+                        <span class="font-bold text-red-600">Автомобиль</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Призыв к действию -->
+    <section class="py-16 bg-red-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Готовы к увлекательной игре с добрыми делами?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Присоединяйтесь к миллионам россиян, которые уже сделали Русское Лото частью своих семейных традиций.</p>
+            <button class="bg-white hover:bg-gray-100 text-red-600 font-bold py-4 px-12 rounded-full transition transform hover:scale-105 shadow-lg text-lg">
+                Купить билет
+            </button>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">РЛ</div>
+                        <h3 class="text-xl font-bold">Русское Лото</h3>
+                    </div>
+                    <p class="text-gray-400">Семейное развлечение с 1994 года. Часть средств от каждого билета идет на благотворительность.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Информация</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">О нас</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Правила</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Благотворительность</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Победители</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Поддержка</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Как играть</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Проверить билет</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Получить выигрыш</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Русское Лото. Все права защищены.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-vk text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-telegram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-odnoklassniki text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Простая анимация для шаров при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const balls = document.querySelectorAll('.lottery-ball');
+            balls.forEach((ball, index) => {
+                setTimeout(() => {
+                    ball.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        ball.style.transform = 'scale(1)';
+                    }, 300);
+                }, index * 100);
+            });
+            
+            // Плавная прокрутка для якорных ссылок
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</html>
